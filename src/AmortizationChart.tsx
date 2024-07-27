@@ -4,7 +4,6 @@ import React from 'react'
 
 import { ChartsLegend } from "@mui/x-charts/ChartsLegend";
 import { breakpoints, currentBreakpoint } from './util/breakpoints';
-// import { MonthlyMortgageStats as MonthlyMortgageStat } from './util/Calculations';
 import { currencyFormatter, paymentPortionFormatter, shortDateFormatter } from './util/Formatters';
 import { DatasetElementType } from '@mui/x-charts/internals';
 
