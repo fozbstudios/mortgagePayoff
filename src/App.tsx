@@ -1,11 +1,6 @@
 import { useMemo, useState } from 'react'
 import AmortizationChart from './AmortizationChart'
 import { Card, CardContent, CardHeader, Container, CssBaseline, ThemeProvider, createTheme, useMediaQuery } from '@mui/material'
-import React from 'react';
-import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
-import TableViewRoundedIcon from '@mui/icons-material/TableViewRounded';
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import IconSwitch from './IconSwitch';
 import { calculateMortgageStats, calculatelateMonthlyPayment } from './util/Calculations';
 import AmortizationTable from './AmortizationTable';
