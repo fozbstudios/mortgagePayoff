@@ -17,7 +17,7 @@ const AmortizationTable: React.FC<AmortizationTableProps> = ({
 }) => {
     return (
 
-        <Table stickyHeader size="small" aria-label="a dense table" r
+        <Table stickyHeader size="small" aria-label="a dense table" 
             sx={{
                 marginBottom: '50px',
                 width: "auto",
