@@ -43,7 +43,7 @@ function App() {
 
       <Container maxWidth={false} >
         <Card sx={{ height: '100%', alignContent:'center',justifyContent:'center'}} elevation={7}>
-          <CardHeader
+          <CardHeader sx={{paddingX:'8px', paddingTop:'8px'}}
             action={
               <>
                 <IconSwitch value={darkMode} setValue={setDarkMode} offIcon={IconData.LightModeOutlined} onIcon={IconData.DarkModeRounded} />
@@ -51,7 +51,7 @@ function App() {
               </>
             }
           />
-          <CardContent   sx={{ height: '99%', width: '100%', display:'flex', alignContent:'center', justifyContent:'center', overflow:'auto' }}>
+          <CardContent   sx={{ paddingX:'8px', paddingTop:'4px', height: '99%', width: '100%', display:'flex', alignContent:'center', justifyContent:'center', overflow:'auto' }}>
             {(viewChart)?
             <AmortizationChart houseLandValue={houseLandValue} monthlyMortgageStats={monthlyMortgageStats} />:
             <AmortizationTable theme={theme} monthlyMortgageStats={monthlyMortgageStats}/>
