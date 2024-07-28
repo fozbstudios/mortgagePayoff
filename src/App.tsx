@@ -42,7 +42,7 @@ function App() {
       <CssBaseline />
 
       <Container maxWidth={false} >
-        <Card sx={{ height: '98%', }} elevation={7}>
+        <Card sx={{ height: '100%', alignContent:'center',justifyContent:'center'}} elevation={7}>
           <CardHeader
             action={
               <>
@@ -51,10 +51,10 @@ function App() {
               </>
             }
           />
-          <CardContent sx={{ height: '99%', overflow:'auto' }}>
+          <CardContent   sx={{ height: '99%', width: '100%', display:'flex', alignContent:'center', justifyContent:'center', overflow:'auto' }}>
             {(viewChart)?
             <AmortizationChart houseLandValue={houseLandValue} monthlyMortgageStats={monthlyMortgageStats} />:
-            <AmortizationTable  monthlyMortgageStats={monthlyMortgageStats}/>
+            <AmortizationTable theme={theme} monthlyMortgageStats={monthlyMortgageStats}/>
 }
           </CardContent>
         </Card>
