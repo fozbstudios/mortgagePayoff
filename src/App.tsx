@@ -1,11 +1,6 @@
 import { useMemo, useState } from 'react'
 import AmortizationChart from './AmortizationChart'
-import { Card, CardContent, CardHeader, Container, CssBaseline, ThemeProvider, createTheme, useMediaQuery } from '@mui/material'
-import React from 'react';
-import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
-import TableViewRoundedIcon from '@mui/icons-material/TableViewRounded';
-import DarkModeRoundedIcon from '@mui/icons-material/DarkModeRounded';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
+import { Card, CardContent, CardHeader, Container, CssBaseline, Drawer, ThemeProvider, createTheme, useMediaQuery } from '@mui/material'
 import IconSwitch from './IconSwitch';
 import { calculateMortgageStats, calculatelateMonthlyPayment } from './util/Calculations';
 import AmortizationTable from './AmortizationTable';
@@ -21,6 +16,9 @@ function App() {
   const [loanTermMonths, setloanTermMonths] = useState(360)
   const [loanStartMonthYear, setloanStartMonthYear] = useState('October 1 2023')
 
+  const portrait = useMediaQuery('@media (orientation: portrait)')
+  console.log(portrait)
+
   const loanAmmount = houseLandValue - downPaymentDollars
   const monthlyRate = interestRateDecimal / 12
   const monthlyPayment = useMemo(() =>
@@ -29,8 +27,17 @@ function App() {
   const monthlyMortgageStats = useMemo(
     () => calculateMortgageStats(loanTermMonths, loanStartMonthYear, loanAmmount, monthlyRate, monthlyPayment),
     [loanTermMonths, loanStartMonthYear, loanAmmount, monthlyRate, monthlyPayment])
-
-
+const d=<Drawer
+        sx={{
+          backgroundColor:'red',
+          width: 3,
+          flexShrink: 0,
+        }}
+        variant="persistent"
+        anchor= {portrait?'bottom':'left'}
+        open={true}
+      />
+console.log(d.props.anchor)
   const theme = useMemo(
     () =>
       createTheme({
@@ -40,15 +47,25 @@ function App() {
       }),
     [darkMode],
   );
-
+  const drawerPercent='10%'
   return (
 
     <ThemeProvider theme={theme}>
       <CssBaseline />
-
-      <Container maxWidth={false} >
-        <Card sx={{ height: '98%', }} elevation={7}>
-          <CardHeader
+      <Container maxWidth={false}  sx={{display:'flex', flexDirection: portrait?'column-reverse':'row'}}>
+      <Drawer
+        sx={{
+          backgroundColor:'red',
+          height: portrait? drawerPercent:'100%',
+          width: portrait? '100%':drawerPercent,
+          flexShrink: 0,
+        }}
+        variant="persistent"
+        open={true}
+      />
+        
+        <Card open={true} sx={{flexGrow:1, height: '100%',alignContent:'center',justifyContent:'center'}} elevation={7}>
+          <CardHeader sx={{paddingX:'8px', paddingTop:'8px'}}
             action={
               <>
                 <IconSwitch value={darkMode} setValue={setDarkMode} offIcon={IconData.LightModeOutlined} onIcon={IconData.DarkModeRounded} />
