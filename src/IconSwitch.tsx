@@ -1,19 +1,24 @@
 import { styled } from "@mui/material";
 import Switch, { SwitchProps } from "@mui/material/Switch/Switch"
+import React from "react";
 
 
 
-interface IconSwitchProps extends SwitchProps {
+interface IconSwitchStyleProps extends SwitchProps {
   value: boolean,
-  setValue?: React.Dispatch<React.SetStateAction<boolean>>
   offIcon: string,
   onIcon: string
 }
+interface IconSwitchProps extends IconSwitchStyleProps {
+  setValue: React.Dispatch<React.SetStateAction<boolean>>
 
-const StyledSwitch = styled(Switch)<IconSwitchProps>(({ theme,checked,offIcon,onIcon }) => ({
-    '&.Mui-checked': {
-      color: '#fff',
-    },
+}
+
+const StyledSwitch = styled(Switch, { shouldForwardProp: (prop) => prop !== 'offIcon' && prop !== 'onIcon' && prop !== 'setValue' })<IconSwitchProps>(({ theme, checked, offIcon, onIcon }) => ({
+
+  '&.Mui-checked': {
+    color: '#fff',
+  },
   '& .MuiSwitch-thumb': {
     backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
 
@@ -26,7 +31,7 @@ const StyledSwitch = styled(Switch)<IconSwitchProps>(({ theme,checked,offIcon,on
       top: 0,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
-      backgroundImage: checked?onIcon:offIcon,
+      backgroundImage: checked ? onIcon : offIcon,
     },
   },
 }));
@@ -36,6 +41,6 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>, setFunc: React
 };
 const IconSwitch: React.FC<IconSwitchProps> = ({ value, setValue, offIcon, onIcon }: IconSwitchProps) => {
 
-  return <StyledSwitch  value={value} checked={value} onChange={(e) => handleChange(e, setValue)} offIcon={offIcon} onIcon={onIcon} />
+  return <StyledSwitch setValue={setValue} value={value} checked={value} onChange={(e) => handleChange(e, setValue)} offIcon={offIcon} onIcon={onIcon} />
 }
 export default IconSwitch

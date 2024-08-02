@@ -1,4 +1,5 @@
 interface MonthlyMortgageStat {
+[key: string]: number|Date
     id:number
     newAmmountRemaining: number
     principalAmmount: number

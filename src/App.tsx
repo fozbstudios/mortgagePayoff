@@ -73,10 +73,10 @@ console.log(d.props.anchor)
               </>
             }
           />
-          <CardContent sx={{ height: '99%', overflow:'auto' }}>
+          <CardContent   sx={{ paddingX:'8px', paddingTop:'4px', height: '99%', width: '100%', display:'flex', alignContent:'center', justifyContent:'center', overflow:'auto' }}>
             {(viewChart)?
             <AmortizationChart houseLandValue={houseLandValue} monthlyMortgageStats={monthlyMortgageStats} />:
-            <AmortizationTable  monthlyMortgageStats={monthlyMortgageStats}/>
+            <AmortizationTable theme={theme} monthlyMortgageStats={monthlyMortgageStats}/>
 }
           </CardContent>
         </Card>
