@@ -41,6 +41,6 @@ const handleChange = (event: React.ChangeEvent<HTMLInputElement>, setFunc: React
 };
 const IconSwitch: React.FC<IconSwitchProps> = ({ value, setValue, offIcon, onIcon }: IconSwitchProps) => {
 
-  return <StyledSwitch setValue={setValue} value={value} checked={value} onChange={(e) => handleChange(e, setValue)} offIcon={offIcon} onIcon={onIcon} />
+  return <StyledSwitch {...{setValue,value,offIcon,onIcon}} checked={value} onChange={(e) => handleChange(e, setValue)} />
 }
 export default IconSwitch
