@@ -67,7 +67,7 @@ const overallError=errors.find(element=>element.bad)
       }),
     [darkMode],
   );
-  const drawerPercent = '10%'
+  const drawerPercent = portrait?'330px':'208px'
   let cardContent=<></>
   console.log(overallError)
   if (overallError===undefined) {
@@ -108,7 +108,7 @@ const overallError=errors.find(element=>element.bad)
           variant="persistent"
           open={true}
         >
-          <Grid container spacing={2} padding={1} >
+          <Grid container justifyContent='space-evenly' spacing={1} padding={1} >
             <MortgageParam label= 'Property Value' error={propertyValueError} value={propertyValue} dataType='$' setValue={setpropertyValue}  overallError={overallError}/>
             <MortgageParam label='Down Payment' value={downPaymentDollars} error={downPaymentError} dataType='$' setValue={setDownPaymentDollars}  overallError={overallError}/>
             <MortgageParam label='Loan Term (Months)' value={loanTermMonths} dataType='' setValue={setloanTermMonths}  error={loanTermMonthsError} overallError={overallError}/>
