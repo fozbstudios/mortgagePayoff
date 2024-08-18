@@ -35,6 +35,7 @@ const MortgageParam: React.FC<MortgageParamProps> = ({
 				disabled={overallError !== undefined}
 				autoComplete="off"
 				name={label}
+				size="small"
 				label={label}
         value={value}
 				fullWidth={true}
@@ -70,7 +71,8 @@ const MortgageParam: React.FC<MortgageParamProps> = ({
 				}}
 				helperText={error.message}
 				variant="outlined"
-				sx={{ outline: "notched" }}
+				size="small"
+				sx={{ outline: "notched",  }}
 				InputProps={{
 					...(dataType === "$" && { startAdornment: dollarAdornment }),
 					...(dataType === "%" && { endAdornment: percentAdornment }),

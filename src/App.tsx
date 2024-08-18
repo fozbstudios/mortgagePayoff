@@ -67,7 +67,7 @@ const overallError=errors.find(element=>element.bad)
       }),
     [darkMode],
   );
-  const drawerPercent = portrait?'330px':'208px'
+  const drawerPercent = portrait?'270px':'208px'
   let cardContent=<></>
   console.log(overallError)
   if (overallError===undefined) {
