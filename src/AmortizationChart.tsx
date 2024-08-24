@@ -43,8 +43,17 @@ const AmortizationChart: React.FC<AmortizationChartProps> = ({
 		[breakpoints.Sm]: 24,
 		[breakpoints.Xs]: 30,
 	};
+	const legendItemSizes: { [key in breakpoints]: number } = {
+		[breakpoints.Xl]: 16,
+		[breakpoints.Lg]: 14,
+		[breakpoints.Md]: 12,
+		[breakpoints.Sm]: 10,
+		[breakpoints.Xs]: 8,
+	};
+	const legendItemSize=legendItemSizes[curBreak]
 
-	console.log("bp", breakpoints[currentBreakpoint()]);
+
+	console.log("bp", breakpoints[curBreak],legendItemSize);
 	const tickMultiplcationFactor = Math.round(monthlyMortgageStats.length/360)
 	return (
 		<ResponsiveChartContainer
@@ -52,7 +61,7 @@ const AmortizationChart: React.FC<AmortizationChartProps> = ({
 				marginBottom: 3,
 				[`.${axisClasses.left} .${axisClasses.label}`]: {
 					// Move the y-axis label with CSS
-					transform: "translateX(-30px)",
+					transform: "translateX(-35px)",
 				},
 				[".MuiLineElement-series-newAmmountRemaining"]: {
 					strokeWidth: "3px",
@@ -142,7 +151,17 @@ const AmortizationChart: React.FC<AmortizationChartProps> = ({
 			<LinePlot skipAnimation />
 			<MarkPlot skipAnimation />
 
-			<ChartsLegend skipAnimation />
+			<ChartsLegend skipAnimation   slotProps={{
+    legend: {
+		itemMarkWidth: legendItemSize,
+		itemMarkHeight: legendItemSize,
+		padding:-1,
+
+      labelStyle: {
+        fontSize: legendItemSize,
+      },
+    },
+  }}/>
 			<LineHighlightPlot />
 			<ChartsAxisHighlight x="line" skipAnimation />
 			<ChartsTooltip trigger="axis" skipAnimation />
