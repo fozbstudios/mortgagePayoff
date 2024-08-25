@@ -127,7 +127,7 @@ const overallError=errors.find(element=>element.bad)
             }
           />
           {/* {overallError!==null} */}
-          <CardContent sx={{ paddingX: '8px', paddingTop: '4px', height: '99%', width: '100%', display: 'flex', alignContent: 'center', justifyContent: 'center', bgcolor:darkMode?'':'FloralWhite', overflow: 'auto' }}>
+          <CardContent sx={{ paddingX: '8px', paddingTop: '0px', height: '99%', width: '100%', display: 'flex', alignContent: 'center', justifyContent: 'center', bgcolor:darkMode?'':'FloralWhite', overflow: 'auto' }}>
 {cardContent}            
           </CardContent>
         </Card>
